@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "624398191062",
+    "project_id": "moneysaving-64abb",
+    "storage_bucket": "moneysaving-64abb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624398191062:android:677073c517344a8b95bc77",
+        "android_client_info": {
+          "package_name": "com.example.money_saving"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624398191062-qvl98v3knakdiqegpqs5glp321u709sc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkcOpscr2XblUGm5EHCjt9f4UMptQTWok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624398191062-qvl98v3knakdiqegpqs5glp321u709sc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
