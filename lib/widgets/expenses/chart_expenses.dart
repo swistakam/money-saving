@@ -54,7 +54,7 @@ class _PiChartTransactionState extends State<PiChartTransaction> {
         dataMap: dataMap,
         animationDuration: Duration(milliseconds: 1500),
         chartLegendSpacing: 32,
-        chartRadius: MediaQuery.of(context).size.width / 1.8,
+        chartRadius: MediaQuery.of(context).size.width / 1.9,
         colorList: colorList,
         initialAngleInDegree: 0,
         chartType: ChartType.disc,

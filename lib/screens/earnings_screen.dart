@@ -5,7 +5,6 @@ import 'package:money_saving/widgets/earnings/chart_earnings.dart';
 import 'package:money_saving/widgets/earnings/earnings_popup.dart';
 import 'package:money_saving/widgets/earnings/progres_bar_earnings.dart';
 import 'package:money_saving/widgets/earnings/transaction_space_earnings.dart';
-import 'package:money_saving/widgets/expenses/progres_bar_expenses.dart';
 
 class EarningsScreen extends StatefulWidget {
   static const id = 'EarningsScreen';
@@ -68,6 +67,7 @@ class _EarningsScreenState extends State<EarningsScreen> {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
