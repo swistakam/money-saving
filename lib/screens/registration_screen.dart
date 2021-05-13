@@ -16,6 +16,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String email = '';
   String password = '';
   bool checkUser = true;
+  bool checkPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +63,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
               SizedBox(
+                height: 8.0,
+              ),
+              TextField(
+                obscureText: true,
+                onChanged: (value) {
+                  setState(() {
+                    if (password != value) {
+                      checkPassword = false;
+                    } else {
+                      checkPassword = true;
+                    }
+                  });
+                },
+                decoration: kTextInputDecoration.copyWith(
+                  hintText: 'Powtórz hasło',
+                ),
+              ),
+              SizedBox(
                 height: 24.0,
               ),
               Padding(
@@ -94,6 +113,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
               checkUser ? Text('') : Text("Błędne dane"),
+              checkPassword
+                  ? Text('')
+                  : Text(
+                      "Hasła różnią się od siebie!",
+                      style: TextStyle(fontSize: 16),
+                    ),
             ],
           ),
         ),

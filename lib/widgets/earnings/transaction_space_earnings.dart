@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:money_saving/services/firebase_query.dart';
 import '../../themes/constans.dart';
 
@@ -88,13 +89,24 @@ class _TransactionSpaceEarningsState extends State<TransactionSpaceEarnings> {
                         fontSize: 14,
                       ),
                     ),
-                    trailing: Text(
-                      '${(listOfDocumentSnap[index].data() as Map)['price']} zł',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    trailing: Column(
+                      children: [
+                        Text(
+                          '${(listOfDocumentSnap[index].data() as Map)['price']} zł',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          '${DateFormat("dd.MM.yyyy").format((listOfDocumentSnap[index].data() as Map)['time'].toDate())}',
+                          style: TextStyle(color: Colors.black),
+                        )
+                      ],
                     ),
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(

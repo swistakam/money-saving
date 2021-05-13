@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:money_saving/services/firebase_query.dart';
 import '../../themes/constans.dart';
 
@@ -8,13 +9,15 @@ class TransactionSpaceExpenses extends StatefulWidget {
 
   const TransactionSpaceExpenses(this.height);
   @override
-  _TransactionSpaceExpensesState createState() => _TransactionSpaceExpensesState();
+  _TransactionSpaceExpensesState createState() =>
+      _TransactionSpaceExpensesState();
 }
 
 class _TransactionSpaceExpensesState extends State<TransactionSpaceExpenses> {
   @override
   Widget build(BuildContext context) {
     final meadiaQuery = MediaQuery.of(context);
+    var data = DateFormat("dd.MM.yyyy").format(DateTime.now());
 
     return Positioned(
       bottom: 0,
@@ -87,13 +90,24 @@ class _TransactionSpaceExpensesState extends State<TransactionSpaceExpenses> {
                         fontSize: 14,
                       ),
                     ),
-                    trailing: Text(
-                      '${(listOfDocumentSnap[index].data() as Map)['price']} zł',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    trailing: Column(
+                      children: [
+                        Text(
+                          '${(listOfDocumentSnap[index].data() as Map)['price']} zł',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          '${DateFormat("dd.MM.yyyy").format((listOfDocumentSnap[index].data() as Map)['time'].toDate())}',
+                          style: TextStyle(color: Colors.black),
+                        )
+                      ],
                     ),
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(
