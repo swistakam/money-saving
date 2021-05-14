@@ -80,7 +80,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       });
                       checkUser = await loginUser(email, password);
                       if (checkUser) {
-                        Navigator.pushNamed(context, ExpenseScreen.id);
+                        Navigator.restorablePushNamedAndRemoveUntil(
+                            context, ExpenseScreen.id, (route) => false);
                       }
                       setState(() {
                         showSpinner = false;
